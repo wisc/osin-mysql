@@ -34,18 +34,19 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 
-	"github.com/felipeweb/osin-mysql/mysql"
+	"github.com/felipeweb/osin-mysql"
 	"github.com/RangelReale/osin"
 )
 
 func main() {
     url := "user:password@tcp(host:3306)/dbname"
-	db, err = sql.Open("mysql", url)
+    db, err := sql.Open("mysql", url)
     if err != nil {
         return nil, err
     }
 
     store := mysql.New(db)
+    store.CreateSchemas()
     server := osin.NewServer(osin.NewServerConfig(), store)
 
     // See the osin documentation for more information
