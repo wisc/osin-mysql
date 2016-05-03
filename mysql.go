@@ -24,7 +24,7 @@ var schemas = []string{`CREATE TABLE IF NOT EXISTS client (
 	redirect_uri varchar(255) NOT NULL,
 	state        varchar(255) NOT NULL,
 	extra 		 varchar(255) NOT NULL,
-	created_at   timestamp(6) NOT NULL
+	created_at   timestamp NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS access (
 	client        varchar(255) NOT NULL,
 	authorize     varchar(255) NOT NULL,
@@ -35,7 +35,7 @@ var schemas = []string{`CREATE TABLE IF NOT EXISTS client (
 	scope         varchar(255) NOT NULL,
 	redirect_uri  varchar(255) NOT NULL,
 	extra 		  varchar(255) NOT NULL,
-	created_at    timestamp(6) NOT NULL
+	created_at    timestamp NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS refresh (
 	token         varchar(255) NOT NULL PRIMARY KEY,
 	access        varchar(255) NOT NULL
